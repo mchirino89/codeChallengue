@@ -6,11 +6,13 @@
 //  Copyright © 2019 Mauricio Chirino. All rights reserved.
 //
 
-import UIKit
+import Alamofire
 
 class ListViewController: UIViewController {
 
-    private let dataSource = ContactsDataSource()
+    private lazy var dataSource: ContactsDataSource = {
+        return ContactsDataSource(delegate: self)
+    }()
 
     @IBOutlet private weak var contactsTableView: UITableView! {
         didSet {
@@ -19,6 +21,13 @@ class ListViewController: UIViewController {
         }
     }
 
+}
+
+extension ListViewController: ContactsDataSourcable {
+    /// Gets notify when the data source is updated
+    func updateUI() {
+        contactsTableView.reloadData()
+    }
 }
 
 extension ListViewController: UITableViewDelegate {

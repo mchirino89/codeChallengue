@@ -6,13 +6,18 @@
 //  Copyright © 2019 Mauricio Chirino. All rights reserved.
 //
 
-import UIKit
+import Alamofire
+
+protocol ContactsDataSourcable: class {
+    func updateUI()
+}
 
 class ContactsDataSource: NSObject {
 
+    private weak var delegate: ContactsDataSourcable?
 
-
-    override init() {
+    init(delegate: ContactsDataSourcable) {
+        self.delegate = delegate
         NetworkLayer.shared.getJSON(from: Constants.rootURL) { response in
             switch response {
             case .success(let value):
