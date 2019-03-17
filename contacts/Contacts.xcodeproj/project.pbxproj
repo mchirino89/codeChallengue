@@ -15,6 +15,9 @@
 		E13E8D43223E9C5A0021CD55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E13E8D42223E9C5A0021CD55 /* Assets.xcassets */; };
 		E13E8D46223E9C5A0021CD55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13E8D44223E9C5A0021CD55 /* LaunchScreen.storyboard */; };
 		E13E8D51223E9C5A0021CD55 /* contactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13E8D50223E9C5A0021CD55 /* contactsTests.swift */; };
+		E1FBB6F4223EB19E0001E273 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB6F3223EB19E0001E273 /* NetworkLayer.swift */; };
+		E1FBB6F6223EB1D40001E273 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB6F5223EB1D40001E273 /* Constants.swift */; };
+		E1FBB6FD223EBEF90001E273 /* ContactsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB6FC223EBEF90001E273 /* ContactsDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		E13E8D4C223E9C5A0021CD55 /* ContactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13E8D50223E9C5A0021CD55 /* contactsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contactsTests.swift; sourceTree = "<group>"; };
 		E13E8D52223E9C5A0021CD55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1FBB6F3223EB19E0001E273 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		E1FBB6F5223EB1D40001E273 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E1FBB6FC223EBEF90001E273 /* ContactsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,8 @@
 		E13E8D3A223E9C580021CD55 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				E1FBB6F2223EB1780001E273 /* Network */,
+				E1FBB6F1223EB1710001E273 /* Models */,
 				E13E8D5C223E9D2E0021CD55 /* Controllers */,
 				E13E8D5B223E9CF20021CD55 /* UI */,
 				E13E8D5D223E9FDF0021CD55 /* Support */,
@@ -138,7 +146,8 @@
 		E13E8D5C223E9D2E0021CD55 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E13E8D3D223E9C580021CD55 /* ListViewController.swift */,
+				E1FBB6F9223EBA470001E273 /* Details */,
+				E1FBB6F8223EBA3F0001E273 /* Listing */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -150,6 +159,38 @@
 				E13E8D47223E9C5A0021CD55 /* Info.plist */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		E1FBB6F1223EB1710001E273 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E1FBB6F2223EB1780001E273 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E1FBB6F5223EB1D40001E273 /* Constants.swift */,
+				E1FBB6F3223EB19E0001E273 /* NetworkLayer.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E1FBB6F8223EBA3F0001E273 /* Listing */ = {
+			isa = PBXGroup;
+			children = (
+				E1FBB6FC223EBEF90001E273 /* ContactsDataSource.swift */,
+				E13E8D3D223E9C580021CD55 /* ListViewController.swift */,
+			);
+			path = Listing;
+			sourceTree = "<group>";
+		};
+		E1FBB6F9223EBA470001E273 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,8 +354,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1FBB6F4223EB19E0001E273 /* NetworkLayer.swift in Sources */,
 				E13E8D3E223E9C580021CD55 /* ListViewController.swift in Sources */,
 				E13E8D3C223E9C580021CD55 /* AppDelegate.swift in Sources */,
+				E1FBB6F6223EB1D40001E273 /* Constants.swift in Sources */,
+				E1FBB6FD223EBEF90001E273 /* ContactsDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
