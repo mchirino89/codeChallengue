@@ -12,4 +12,8 @@ struct Address: Decodable {
     let state: String
     let country: String
     let zipCode: String
+
+    var humanReadable: String {
+        return street + "\n" + city + ", " + state + " " + zipCode + ", " + country
+    }
 }

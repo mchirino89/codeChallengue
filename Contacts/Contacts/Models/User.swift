@@ -8,6 +8,16 @@
 
 import Foundation
 
+private enum GeneralInfo: String, CaseIterable {
+    case address
+    case birthdate
+    case email
+
+    var titleTag: String {
+        return self.rawValue.capitalized
+    }
+}
+
 struct User {
     let name: String
     let id: String

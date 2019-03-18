@@ -6,7 +6,7 @@
 //  Copyright © 2019 Mauricio Chirino. All rights reserved.
 //
 
-import Alamofire
+import UIKit
 
 class ListViewController: UIViewController {
 
@@ -54,9 +54,12 @@ extension ListViewController: ResponseHandable {
 extension ListViewController: UITableViewDelegate {
     /// Notifies which cell was selected to coordinate transition
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // FIX: This should be done using coordinators definitively
+        // FIX: This should definitively be done using coordinators
         let selectedUser = dataSource.getUser(at: indexPath)
-        let detailedView = DetailsViewController(currentUser: selectedUser)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let detailedView: DetailsViewController = storyBoard.instantiate(from: "detailedViewController")
+        detailedView.setDataSource(with: selectedUser)
         navigationController?.pushViewController(detailedView, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

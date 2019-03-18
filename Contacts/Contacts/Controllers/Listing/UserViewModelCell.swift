@@ -16,7 +16,8 @@ class UserViewModel: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var favoriteWidth: NSLayoutConstraint!
-
+    @IBOutlet weak var thumbnailActivityIndicator: UIActivityIndicatorView!
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         mainStackView.spacing = bounds.width * 0.05
