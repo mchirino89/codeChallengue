@@ -8,7 +8,7 @@
 
 import Foundation
 
-private enum GeneralInfo: String, CaseIterable {
+private enum GeneralInfoKey: String, CaseIterable {
     case address
     case birthdate
     case email
@@ -29,6 +29,7 @@ struct User {
     let birthdate: String
     let phone: Phone
     let address: Address
+    var generalInfo: [String: String]
 
     init(name: String,
          id: String,
@@ -50,6 +51,19 @@ struct User {
         self.birthdate = birthdate
         self.phone = phone
         self.address = address
+        generalInfo = [:]
+        setGeneralInfo()
+    }
+
+    private mutating func setGeneralInfo() {
+        generalInfo[GeneralInfoKey.address.titleTag] = address.humanReadable
+        generalInfo[GeneralInfoKey.birthdate.titleTag] = birthdate.readableDate
+        generalInfo[GeneralInfoKey.email.titleTag] = emailAddress
+    }
+
+    func getDetails(at key: String) -> (type: String, content: String) {
+        guard let retrieved = generalInfo[key] else { return ("", "") }
+        return (key, retrieved)
     }
 }
 

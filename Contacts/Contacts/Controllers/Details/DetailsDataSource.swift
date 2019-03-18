@@ -23,9 +23,16 @@ private enum cellId: String, CaseIterable {
 class DetailsDataSource: NSObject {
 
     private var userData: User
+    private let sectionsCount: [Int]
+    private let availablePhones: [String]
+    private let generalInfo: [String]
 
     init(userData: User) {
         self.userData = userData
+        // Not sure if handling sections is safer this way than the switch alternative inside the delegate's method
+        sectionsCount = [1, userData.phone.directory.count, userData.generalInfo.count]
+        availablePhones = Array(userData.phone.directory.keys)
+        generalInfo = Array(userData.generalInfo.keys)
     }
 
     var isFavoriteUser: Bool {
@@ -51,14 +58,7 @@ extension DetailsDataSource: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch getCurrent(section) {
-        case .header:
-            return 1
-        case .phone:
-            return userData.phone.directory.count
-        case .general:
-            return 3
-        }
+        return sectionsCount[section]
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,11 +70,13 @@ extension DetailsDataSource: UITableViewDataSource {
             return cell
         case .phone:
             let cell: InfoViewModelCell = tableView.dequeueCell(with: currentId)
-//            cell.setInfo(content: userData.phone.readableDirectory.values[indexPath.row], title: userData.phone.readableDirectory.keys[indexPath.row])
+            let currentPhone = userData.phone.readablePhone(from: availablePhones[indexPath.row])
+            cell.setInfo(content: currentPhone.number, title: currentPhone.type)
             return cell
         default:
             let cell: InfoViewModelCell = tableView.dequeueCell(with: currentId)
-//            cell.setInfo(content: <#T##String#>, title: <#T##String#>)
+            let currentInfo = userData.getDetails(at: generalInfo[indexPath.row])
+            cell.setInfo(content: currentInfo.content, title: currentInfo.type)
             return cell
         }
     }

@@ -25,3 +25,18 @@ extension UIStoryboard {
         return newController
     }
 }
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    var readableDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
+        let date = dateFormatter.date(from: self)
+        dateFormatter.dateFormat = "MMMM d, yyyy"
+        guard let validDate = date else { return "N/A" }
+        return dateFormatter.string(from: validDate)
+    }
+}

@@ -15,6 +15,11 @@ protocol DetailsSetable {
 class InfoViewModelCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
+
+    func configureCell(basedOn dictionary: [String: String]) {
+        
+    }
+
 }
 
 extension InfoViewModelCell: DetailsSetable {
