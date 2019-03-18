@@ -22,6 +22,9 @@
 		E1FBB701223EE32C0001E273 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB700223EE32C0001E273 /* Address.swift */; };
 		E1FBB703223EE34C0001E273 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB702223EE34C0001E273 /* User.swift */; };
 		E1FBB705223F069F0001E273 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = E1FBB704223F069E0001E273 /* test.json */; };
+		E1FBB707223F208E0001E273 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB706223F208E0001E273 /* DetailsViewController.swift */; };
+		E1FBB709223F214D0001E273 /* UserViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB708223F214D0001E273 /* UserViewModelCell.swift */; };
+		E1FBB70B223F38EF0001E273 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB70A223F38EF0001E273 /* APIResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		E1FBB700223EE32C0001E273 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		E1FBB702223EE34C0001E273 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E1FBB704223F069E0001E273 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = SOURCE_ROOT; };
+		E1FBB706223F208E0001E273 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		E1FBB708223F214D0001E273 /* UserViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelCell.swift; sourceTree = "<group>"; };
+		E1FBB70A223F38EF0001E273 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +191,7 @@
 			children = (
 				E1FBB6F5223EB1D40001E273 /* Constants.swift */,
 				E1FBB6F3223EB19E0001E273 /* NetworkLayer.swift */,
+				E1FBB70A223F38EF0001E273 /* APIResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -194,6 +201,7 @@
 			children = (
 				E1FBB6FC223EBEF90001E273 /* ContactsDataSource.swift */,
 				E13E8D3D223E9C580021CD55 /* ListViewController.swift */,
+				E1FBB708223F214D0001E273 /* UserViewModelCell.swift */,
 			);
 			path = Listing;
 			sourceTree = "<group>";
@@ -201,6 +209,7 @@
 		E1FBB6F9223EBA470001E273 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				E1FBB706223F208E0001E273 /* DetailsViewController.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -369,11 +378,14 @@
 			files = (
 				E1FBB6FF223EE2710001E273 /* Phone.swift in Sources */,
 				E1FBB6F4223EB19E0001E273 /* NetworkLayer.swift in Sources */,
+				E1FBB707223F208E0001E273 /* DetailsViewController.swift in Sources */,
 				E13E8D3E223E9C580021CD55 /* ListViewController.swift in Sources */,
 				E13E8D3C223E9C580021CD55 /* AppDelegate.swift in Sources */,
+				E1FBB70B223F38EF0001E273 /* APIResponse.swift in Sources */,
 				E1FBB703223EE34C0001E273 /* User.swift in Sources */,
 				E1FBB6F6223EB1D40001E273 /* Constants.swift in Sources */,
 				E1FBB6FD223EBEF90001E273 /* ContactsDataSource.swift in Sources */,
+				E1FBB709223F214D0001E273 /* UserViewModelCell.swift in Sources */,
 				E1FBB701223EE32C0001E273 /* Address.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

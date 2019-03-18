@@ -22,6 +22,28 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wgF-Dh-Rqv">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" rowHeight="80" id="pKr-XG-B5a" customClass="UserViewModel" customModule="Contacts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pKr-XG-B5a" id="yrW-gs-60I">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLO-ej-wEP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nLO-ej-wEP" firstAttribute="centerX" secondItem="yrW-gs-60I" secondAttribute="centerX" id="86n-Eg-zbd"/>
+                                                <constraint firstItem="nLO-ej-wEP" firstAttribute="width" secondItem="yrW-gs-60I" secondAttribute="width" id="8St-Aw-F6P"/>
+                                                <constraint firstItem="nLO-ej-wEP" firstAttribute="height" secondItem="yrW-gs-60I" secondAttribute="height" id="Qwp-Ms-0qb"/>
+                                                <constraint firstItem="nLO-ej-wEP" firstAttribute="centerY" secondItem="yrW-gs-60I" secondAttribute="centerY" id="med-yI-XcS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,6 +61,7 @@
                     </connections>
                 </viewController>
             </objects>
+            <point key="canvasLocation" x="184.80000000000001" y="654.42278860569718"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ByD-u8-aEA">

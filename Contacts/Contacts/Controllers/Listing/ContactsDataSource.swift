@@ -6,42 +6,22 @@
 //  Copyright © 2019 Mauricio Chirino. All rights reserved.
 //
 
-import Alamofire
-
-protocol ContactsDataSourcable: class {
-    func updateUI(currentState: UIState)
-}
+import UIKit
 
 class ContactsDataSource: NSObject {
 
-    private var users: [User] = []
+    private var users: [User]
+    private let cellId: String
 
-    init(delegate: ContactsDataSourcable) {
-        super.init()
-        NetworkLayer.shared.getData(from: Constants.rootURL) { [weak self] response in
-            switch response {
-            case .success(let value):
-                self?.handleSuccessResponse(for: value, and: delegate)
-            case .failure(let errorInfo):
-                self?.handleFailure(for: errorInfo, and: delegate)
-            }
-        }
+    init(cellId: String) {
+        self.cellId = cellId
+        self.users = []
     }
 
-    private func handleSuccessResponse(for data: Data, and delegate: ContactsDataSourcable) {
-        let decode = JSONDecoder()
-        do {
-            users = try decode.decode([User].self, from: data)
-            delegate.updateUI(currentState: .dataLoaded)
-        } catch let error {
-            handleFailure(for: error, and: delegate)
-        }
+    func update(users: [User] = []) {
+        self.users = users
     }
 
-    private func handleFailure(for error: Error, and delegate: ContactsDataSourcable) {
-        print("Something went wrong during JSON decoding \(error.localizedDescription)")
-        delegate.updateUI(currentState: .dataFailure)
-    }
 }
 
 extension ContactsDataSource: UITableViewDataSource {
@@ -50,6 +30,9 @@ extension ContactsDataSource: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? UserViewModel else {
+            return UITableViewCell()
+        }
+        return cell
     }
 }

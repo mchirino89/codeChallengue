@@ -8,19 +8,22 @@
 
 import Alamofire
 
-enum UIState {
-    case dataLoading
-    case dataLoaded
-    case dataFailure
+enum DataState {
+    case loaded([User])
+    case failure(Error)
 }
 
 class ListViewController: UIViewController {
 
+    private let cellId = "userCell"
+
     private lazy var dataSource: ContactsDataSource = {
-        return ContactsDataSource(delegate: self)
+        return ContactsDataSource(cellId: cellId)
     }()
 
-    private var currentState: UIState = .dataLoading
+    private lazy var apiCall: APIResponse = {
+        return APIResponse(delegate: self)
+    }()
 
     @IBOutlet private weak var contactsTableView: UITableView! {
         didSet {
@@ -31,16 +34,15 @@ class ListViewController: UIViewController {
 
 }
 
-extension ListViewController: ContactsDataSourcable {
-    /// Gets notify when the data source is updated
-    func updateUI(currentState: UIState) {
-        self.currentState = currentState
-        switch currentState {
-        case .dataLoaded:
-            contactsTableView.reloadData()
-        default:
-            NSLog("Something went wrong along the way")
+extension ListViewController: ResponseHandable {
+    func responseOutput(result: DataState) {
+        switch result {
+        case .loaded(let received):
+            dataSource.update(users: received)
+        case .failure(_):
+            dataSource.update()
         }
+        contactsTableView.reloadData()
     }
 }
 
