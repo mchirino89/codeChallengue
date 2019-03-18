@@ -34,6 +34,17 @@ class ContactsDataSource: NSObject {
         return groupedUsers[index.section][index.row]
     }
 
+    func toggleFavorite(for userId: String) {
+        guard var newValue = users.first(where: { $0.id == userId }) else {
+            print("User id \(userId) not found")
+            return
+        }
+        guard let foundIndex = users.firstIndex(where: { $0.id == userId }) else { return }
+        newValue.isFavorite.toggle()
+        users[foundIndex] = newValue
+        sortGrouped()
+    }
+
     private func sortGrouped() {
         groupedUsers.removeAll()
         groupedUsers.append(sortedFractionOf(favorite: true))

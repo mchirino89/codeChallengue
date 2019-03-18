@@ -46,7 +46,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="nLO-ej-wEP">
                                                     <rect key="frame" x="15" y="15" width="345" height="89.5"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="OyK-5J-HQI">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserSmall" translatesAutoresizingMaskIntoConstraints="NO" id="OyK-5J-HQI">
                                                             <rect key="frame" x="0.0" y="0.0" width="89.5" height="89.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="OyK-5J-HQI" secondAttribute="height" id="uUQ-KD-Ihq"/>
@@ -354,8 +354,8 @@
     </scenes>
     <resources>
         <image name="UserLarge" width="150" height="150"/>
+        <image name="UserSmall" width="60" height="60"/>
         <image name="generic" width="133" height="133"/>
-        <image name="logo" width="133" height="33"/>
         <image name="true" width="20" height="20"/>
     </resources>
 </document>

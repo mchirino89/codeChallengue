@@ -22,7 +22,7 @@ struct User {
     let name: String
     let id: String
     let companyName: String
-    let isFavorite: Bool
+    var isFavorite: Bool
     let smallImageURL: URL?
     let largeImageURL: URL?
     let emailAddress: String

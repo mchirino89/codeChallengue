@@ -22,7 +22,7 @@ private enum cellId: String, CaseIterable {
 
 class DetailsDataSource: NSObject {
 
-    private let userData: User
+    private var userData: User
 
     init(userData: User) {
         self.userData = userData
@@ -30,6 +30,10 @@ class DetailsDataSource: NSObject {
 
     var isFavoriteUser: Bool {
         return userData.isFavorite
+    }
+
+    var currentUser: String {
+        return userData.id
     }
 
     private func getCurrent(_ section: Int) -> InfoSections {

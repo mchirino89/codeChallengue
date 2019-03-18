@@ -9,13 +9,21 @@
 import UIKit
 
 protocol FavoriteActionable: class {
-    func toggle()
+    func toggle(on userId: String)
 }
 
 class DetailsViewController: UIViewController {
 
     private var dataSource: DetailsDataSource!
     private weak var delegate: FavoriteActionable?
+
+    private lazy var favoriteState: Bool = {
+        return dataSource.isFavoriteUser
+    }()
+
+    private var currentFavoriteIcon: UIImage {
+        return favoriteState ? #imageLiteral(resourceName: "true") : #imageLiteral(resourceName: "false")
+    }
 
     @IBOutlet private weak var infoTableView: UITableView! {
         didSet {
@@ -30,23 +38,28 @@ class DetailsViewController: UIViewController {
     }
 
     private func setFavoriteButton() {
-        let buttonImage = dataSource.isFavoriteUser ? #imageLiteral(resourceName: "true") : #imageLiteral(resourceName: "false")
-        let favButton = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(favoriteTapped))
+        let favButton = UIBarButtonItem(image: currentFavoriteIcon, style: .plain, target: self, action: #selector(favoriteTapped))
         navigationItem.rightBarButtonItem = favButton
     }
 
     @objc
     private func favoriteTapped() {
-        print("Tapped on favorite")
-        delegate?.toggle()
+        delegate?.toggle(on: dataSource.currentUser)
+        // Find out why the data source state didn't reflect in here inmediately
+        favoriteState.toggle()
+        setFavoriteButton()
     }
 
     func setDataSource(with currentUser: User) {
         dataSource = DetailsDataSource(userData: currentUser)
     }
 
-    func setFavorite(delegate: FavoriteActionable) {
+    func setFavoritable(delegate: FavoriteActionable) {
         self.delegate = delegate
+    }
+
+    deinit {
+        delegate = nil
     }
 }
 

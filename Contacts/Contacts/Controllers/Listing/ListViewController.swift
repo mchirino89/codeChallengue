@@ -59,7 +59,15 @@ extension ListViewController: UITableViewDelegate {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let detailedView: DetailsViewController = storyBoard.instantiate(from: "detailedViewController")
         detailedView.setDataSource(with: selectedUser)
+        detailedView.setFavoritable(delegate: self)
         navigationController?.pushViewController(detailedView, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension ListViewController: FavoriteActionable {
+    func toggle(on userId: String) {
+        dataSource.toggleFavorite(for: userId)
+        contactsTableView.reloadData()
     }
 }
