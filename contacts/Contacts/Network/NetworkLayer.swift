@@ -8,25 +8,31 @@
 
 import Alamofire
 
+enum ResourceType: String {
+    case json
+    case txt
+}
+
 class NetworkLayer {
 
     static let shared = NetworkLayer()
     private init() { }
 
-    func getJSON(from originURL: String, using completion: @escaping (Result<Any>) -> ()) {
-        Alamofire.request(originURL).validate().responseJSON { response in
+    func getData(from originURL: String, using completion: @escaping (Result<Data>) -> ()) {
+        Alamofire.request(originURL).validate().responseData { response in
+            print(response.result.description)
             completion(response.result)
         }
     }
 
-    func getStub<T: Decodable>(from resource: String) -> [T] {
+    func getStub<T: Decodable>(from resource: String, with type: ResourceType) -> [T] {
         let decoder = JSONDecoder()
         do {
-            guard let file = Bundle.main.url(forResource: resource, withExtension: "json") else {
-                print("File \(resource).json not found")
+            guard let file = Bundle.main.url(forResource: resource, withExtension: type.rawValue) else {
+                print("File \(resource).\(type.rawValue) not found")
                 return []
             }
-            let data    = try Data(contentsOf: file)
+            let data = try Data(contentsOf: file)
             return try decoder.decode([T].self, from: data)
         } catch {
             print(error.localizedDescription)

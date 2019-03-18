@@ -8,11 +8,19 @@
 
 import Alamofire
 
+enum UIState {
+    case dataLoading
+    case dataLoaded
+    case dataFailure
+}
+
 class ListViewController: UIViewController {
 
     private lazy var dataSource: ContactsDataSource = {
         return ContactsDataSource(delegate: self)
     }()
+
+    private var currentState: UIState = .dataLoading
 
     @IBOutlet private weak var contactsTableView: UITableView! {
         didSet {
@@ -25,8 +33,14 @@ class ListViewController: UIViewController {
 
 extension ListViewController: ContactsDataSourcable {
     /// Gets notify when the data source is updated
-    func updateUI() {
-        contactsTableView.reloadData()
+    func updateUI(currentState: UIState) {
+        self.currentState = currentState
+        switch currentState {
+        case .dataLoaded:
+            contactsTableView.reloadData()
+        default:
+            NSLog("Something went wrong along the way")
+        }
     }
 }
 
