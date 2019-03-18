@@ -18,6 +18,7 @@
 		E16DDA8A223FEFD5005461F0 /* HeaderViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DDA89223FEFD5005461F0 /* HeaderViewModelCell.swift */; };
 		E16DDA8C223FF0B5005461F0 /* DetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DDA8B223FF0B5005461F0 /* DetailsDataSource.swift */; };
 		E16DDA9022401C3D005461F0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DDA8F22401C3D005461F0 /* Extensions.swift */; };
+		E1F6CD6722405D000006F5EF /* ImageLoadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6CD6622405D000006F5EF /* ImageLoadOperation.swift */; };
 		E1FBB6F4223EB19E0001E273 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB6F3223EB19E0001E273 /* NetworkLayer.swift */; };
 		E1FBB6F6223EB1D40001E273 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB6F5223EB1D40001E273 /* Constants.swift */; };
 		E1FBB6FD223EBEF90001E273 /* ContactsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB6FC223EBEF90001E273 /* ContactsDataSource.swift */; };
@@ -59,6 +60,7 @@
 		E16DDA89223FEFD5005461F0 /* HeaderViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModelCell.swift; sourceTree = "<group>"; };
 		E16DDA8B223FF0B5005461F0 /* DetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsDataSource.swift; sourceTree = "<group>"; };
 		E16DDA8F22401C3D005461F0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E1F6CD6622405D000006F5EF /* ImageLoadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoadOperation.swift; sourceTree = "<group>"; };
 		E1FBB6F3223EB19E0001E273 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		E1FBB6F5223EB1D40001E273 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E1FBB6FC223EBEF90001E273 /* ContactsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsDataSource.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				E1FBB6F5223EB1D40001E273 /* Constants.swift */,
 				E1FBB6F3223EB19E0001E273 /* NetworkLayer.swift */,
+				E1F6CD6622405D000006F5EF /* ImageLoadOperation.swift */,
 				E1FBB70A223F38EF0001E273 /* APIResponse.swift */,
 			);
 			path = Network;
@@ -372,6 +375,7 @@
 				E1FBB707223F208E0001E273 /* DetailsViewController.swift in Sources */,
 				E13E8D3E223E9C580021CD55 /* ListViewController.swift in Sources */,
 				E16DDA8A223FEFD5005461F0 /* HeaderViewModelCell.swift in Sources */,
+				E1F6CD6722405D000006F5EF /* ImageLoadOperation.swift in Sources */,
 				E13E8D3C223E9C580021CD55 /* AppDelegate.swift in Sources */,
 				E1FBB70B223F38EF0001E273 /* APIResponse.swift in Sources */,
 				E16DDA8C223FF0B5005461F0 /* DetailsDataSource.swift in Sources */,

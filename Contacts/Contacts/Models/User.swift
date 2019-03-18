@@ -6,7 +6,7 @@
 //  Copyright © 2019 Mauricio Chirino. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 private enum GeneralInfoKey: String, CaseIterable {
     case address

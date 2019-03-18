@@ -35,10 +35,7 @@ class ContactsDataSource: NSObject {
     }
 
     func toggleFavorite(for userId: String) {
-        guard var newValue = users.first(where: { $0.id == userId }) else {
-            print("User id \(userId) not found")
-            return
-        }
+        guard var newValue = users.first(where: { $0.id == userId }) else { return }
         guard let foundIndex = users.firstIndex(where: { $0.id == userId }) else { return }
         newValue.isFavorite.toggle()
         users[foundIndex] = newValue
@@ -67,9 +64,7 @@ extension ContactsDataSource: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? UserViewModel else {
-            return UITableViewCell()
-        }
+        let cell: UserViewModel = tableView.dequeueCell(with: cellId)
         cell.configureCell(with: groupedUsers[indexPath.section][indexPath.row])
         return cell
     }

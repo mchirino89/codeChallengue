@@ -22,8 +22,10 @@ class HeaderViewModelCell: UITableViewCell {
                 switch response {
                 case .success(let image):
                     self?.userImageView.image = image
+                    NetworkLayer.shared.updateCache(with: image, at: info.largeImageURL)
                 case .failure(_):
                     self?.userImageView.image = #imageLiteral(resourceName: "UserSmall")
+                    NetworkLayer.shared.updateCache(with: #imageLiteral(resourceName: "UserSmall"), at: info.largeImageURL)
                 }
                 self?.loadActivityIndicator.stopAnimating()
             }

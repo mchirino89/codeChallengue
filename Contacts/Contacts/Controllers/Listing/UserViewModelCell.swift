@@ -33,8 +33,10 @@ class UserViewModel: UITableViewCell {
                 switch response {
                 case .success(let image):
                     self?.thumbnailImageView.image = image
+                    NetworkLayer.shared.updateCache(with: image, at: userData.smallImageURL)
                 case .failure(_):
                     self?.thumbnailImageView.image = #imageLiteral(resourceName: "UserSmall")
+                    NetworkLayer.shared.updateCache(with: #imageLiteral(resourceName: "UserSmall"), at: userData.smallImageURL)
                 }
                 self?.thumbnailActivityIndicator.stopAnimating()
             }

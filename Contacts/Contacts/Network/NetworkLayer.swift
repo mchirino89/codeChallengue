@@ -17,7 +17,11 @@ enum ResourceType: String {
 class NetworkLayer {
 
     static let shared = NetworkLayer()
-    private init() { }
+    private let imageCache: AutoPurgingImageCache
+
+    private init() {
+        imageCache = AutoPurgingImageCache()
+    }
 
     func getData(from originURL: String, using completion: @escaping (Result<Data>) -> ()) {
         Alamofire.request(originURL).validate().responseData { response in
@@ -27,11 +31,22 @@ class NetworkLayer {
     }
 
     func getImage(from originURL: String, using completion: @escaping (Result<Image>) -> ()) {
-        Alamofire.request(originURL).responseImage { retrievedImage in
-            completion(retrievedImage.result)
+        guard let savedImage = imageCache.image(withIdentifier: originURL) else {
+            Alamofire.request(originURL).responseImage { retrievedImage in
+                print(retrievedImage.description)
+                completion(retrievedImage.result)
+            }
+            return
         }
+        let success: Result<Image> = .success(savedImage)
+        completion(success)
     }
 
+    func updateCache(with image: UIImage, at key: String) {
+        imageCache.add(image, withIdentifier: key)
+    }
+
+    /// In case of any local testing, use this method to load a local valid JSON file
     func getStub<T: Decodable>(from resource: String, with type: ResourceType) -> [T] {
         let decoder = JSONDecoder()
         do {
@@ -47,3 +62,4 @@ class NetworkLayer {
         }
     }
 }
+
