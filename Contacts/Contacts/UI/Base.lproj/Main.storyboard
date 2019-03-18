@@ -40,22 +40,36 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="dqd-8T-9EW">
-                                                            <rect key="frame" x="113.5" y="15.5" width="231.5" height="58.5"/>
+                                                            <rect key="frame" x="113.5" y="9" width="231.5" height="71.5"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="252" image="true" translatesAutoresizingMaskIntoConstraints="NO" id="dXX-im-TTZ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="58.5"/>
-                                                                </imageView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RCm-Ww-E6X">
-                                                                    <rect key="frame" x="24" y="0.0" width="207.5" height="58.5"/>
+                                                                <view clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="YhI-49-Lie">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="71.5"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="POq-0b-M2x" userLabel="Name">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="207.5" height="34.5"/>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="252" image="true" translatesAutoresizingMaskIntoConstraints="NO" id="dXX-im-TTZ">
+                                                                            <rect key="frame" x="0.0" y="12" width="20" height="23.5"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="dXX-im-TTZ" firstAttribute="width" secondItem="YhI-49-Lie" secondAttribute="width" id="F7U-ca-xjk"/>
+                                                                        <constraint firstAttribute="width" constant="20" id="dOP-il-szA"/>
+                                                                        <constraint firstItem="dXX-im-TTZ" firstAttribute="centerX" secondItem="YhI-49-Lie" secondAttribute="centerX" id="qBg-yo-SJa"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="RCm-Ww-E6X">
+                                                                    <rect key="frame" x="24" y="0.0" width="207.5" height="71.5"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="POq-0b-M2x" userLabel="Name">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="63.5" height="47.5"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
-                                                                            <nil key="textColor"/>
+                                                                            <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nd-k3-8e0" userLabel="Company">
-                                                                            <rect key="frame" x="0.0" y="34.5" width="207.5" height="24"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2nd-k3-8e0" userLabel="Company">
+                                                                            <rect key="frame" x="0.0" y="47.5" width="47" height="24"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                                             <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
@@ -63,11 +77,15 @@
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="dXX-im-TTZ" firstAttribute="height" secondItem="POq-0b-M2x" secondAttribute="height" multiplier="0.5" id="Qxm-JU-Cgb"/>
+                                                                <constraint firstItem="dXX-im-TTZ" firstAttribute="centerY" secondItem="POq-0b-M2x" secondAttribute="centerY" id="meE-Kz-oV9"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="OyK-5J-HQI" firstAttribute="height" secondItem="nLO-ej-wEP" secondAttribute="height" id="DU6-KL-0PX"/>
-                                                        <constraint firstItem="dqd-8T-9EW" firstAttribute="height" secondItem="OyK-5J-HQI" secondAttribute="height" multiplier="0.65" id="cTf-XA-CLe"/>
+                                                        <constraint firstItem="dqd-8T-9EW" firstAttribute="height" secondItem="OyK-5J-HQI" secondAttribute="height" multiplier="0.8" id="cTf-XA-CLe"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
@@ -79,6 +97,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="companyLabel" destination="2nd-k3-8e0" id="yvO-QZ-KBk"/>
+                                            <outlet property="favoriteImageView" destination="dXX-im-TTZ" id="rfe-Rt-Hzw"/>
+                                            <outlet property="favoriteWidth" destination="dOP-il-szA" id="Moz-HW-r0M"/>
+                                            <outlet property="mainStackView" destination="nLO-ej-wEP" id="GHC-eZ-zPs"/>
+                                            <outlet property="nameLabel" destination="POq-0b-M2x" id="Jvz-UF-jFt"/>
+                                            <outlet property="thumbnailImageView" destination="OyK-5J-HQI" id="6dU-gg-B1Q"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

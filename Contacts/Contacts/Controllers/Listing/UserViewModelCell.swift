@@ -10,13 +10,23 @@ import UIKit
 
 class UserViewModel: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var mainStackView: UIStackView!
+    @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var favoriteImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var companyLabel: UILabel!
+    @IBOutlet weak var favoriteWidth: NSLayoutConstraint!
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        mainStackView.spacing = bounds.width * 0.05
+        favoriteWidth.constant = bounds.width * 0.05
     }
 
     func configureCell(with userData: User) {
-        
+        favoriteImageView.isHidden = !userData.isFavorite
+        nameLabel.text = userData.name
+        companyLabel.text = userData.companyName
     }
 
 }

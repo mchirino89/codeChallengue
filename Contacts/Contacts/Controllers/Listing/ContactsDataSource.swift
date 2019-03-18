@@ -25,6 +25,7 @@ class ContactsDataSource: NSObject {
 }
 
 extension ContactsDataSource: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
@@ -36,4 +37,6 @@ extension ContactsDataSource: UITableViewDataSource {
         cell.configureCell(with: users[indexPath.row])
         return cell
     }
+
+    
 }

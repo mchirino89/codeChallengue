@@ -10,9 +10,8 @@ import Alamofire
 
 class ListViewController: UIViewController {
 
-    private let cellId = "userCell"
-
     private lazy var dataSource: ContactsDataSource = {
+        let cellId = "userCell"
         return ContactsDataSource(cellId: cellId)
     }()
 
@@ -25,6 +24,11 @@ class ListViewController: UIViewController {
             contactsTableView.delegate = self
             contactsTableView.dataSource = dataSource
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        apiCall.fetchUsers()
     }
 
 }
@@ -45,5 +49,9 @@ extension ListViewController: UITableViewDelegate {
     /// Notifies which cell was selected to coordinate transition
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
 }
