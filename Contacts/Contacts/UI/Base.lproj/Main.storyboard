@@ -226,6 +226,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="companyLabel" destination="f0Q-z6-n6D" id="Dyb-Tc-jqU"/>
+                                            <outlet property="loadActivityIndicator" destination="5qo-Dl-tVQ" id="Px5-hZ-2lf"/>
                                             <outlet property="nameLabel" destination="H3d-Nu-pjV" id="xJg-eb-qWB"/>
                                             <outlet property="userImageView" destination="fg9-Vu-XA9" id="Jqq-Oh-RmV"/>
                                         </connections>

@@ -23,8 +23,8 @@ struct User {
     let id: String
     let companyName: String
     var isFavorite: Bool
-    let smallImageURL: URL?
-    let largeImageURL: URL?
+    let smallImageURL: String
+    let largeImageURL: String
     let emailAddress: String
     let birthdate: String
     let phone: Phone
@@ -35,8 +35,8 @@ struct User {
          id: String,
          companyName: String,
          isFavorite: Bool,
-         smallImageURL: URL?,
-         largeImageURL: URL?,
+         smallImageURL: String,
+         largeImageURL: String,
          emailAddress: String,
          birthdate: String,
          phone: Phone,
@@ -88,9 +88,7 @@ extension User: Decodable {
         let decodedCompanyName = try container.decodeIfPresent(String.self, forKey: .companyName) ?? " "
         let decodedFavorite = try container.decode(Bool.self, forKey: .isFavorite)
         let decodedSmallImage = try container.decode(String.self, forKey: .smallImageURL)
-        let parseSmallImageURL = URL(string: decodedSmallImage)
         let decodedLargeImage = try container.decode(String.self, forKey: .largeImageURL)
-        let parseLargeImageURL = URL(string: decodedLargeImage)
         let decodedEmail = try container.decode(String.self, forKey: .emailAddress)
         let decodedBirthday = try container.decode(String.self, forKey: .birthdate)
         let decodedPhone = try container.decode(Phone.self, forKey: .phone)
@@ -100,8 +98,8 @@ extension User: Decodable {
                   id: decodedId,
                   companyName: decodedCompanyName,
                   isFavorite: decodedFavorite,
-                  smallImageURL: parseSmallImageURL,
-                  largeImageURL: parseLargeImageURL,
+                  smallImageURL: decodedSmallImage,
+                  largeImageURL: decodedLargeImage,
                   emailAddress: decodedEmail,
                   birthdate: decodedBirthday,
                   phone: decodedPhone,

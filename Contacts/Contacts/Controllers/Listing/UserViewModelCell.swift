@@ -28,6 +28,17 @@ class UserViewModel: UITableViewCell {
         favoriteImageView.isHidden = !userData.isFavorite
         nameLabel.text = userData.name
         companyLabel.text = userData.companyName
+        NetworkLayer.shared.getImage(from: userData.smallImageURL) { response in
+            DispatchQueue.main.async { [weak self] in
+                switch response {
+                case .success(let image):
+                    self?.thumbnailImageView.image = image
+                case .failure(_):
+                    self?.thumbnailImageView.image = #imageLiteral(resourceName: "UserSmall")
+                }
+                self?.thumbnailActivityIndicator.stopAnimating()
+            }
+        }
     }
 
 }

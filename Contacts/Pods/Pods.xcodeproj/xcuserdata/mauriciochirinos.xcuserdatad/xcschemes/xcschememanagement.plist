@@ -11,14 +11,14 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>Pods-Contacts.xcscheme</key>
+		<key>AlamofireImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>Pods-ContactsTests.xcscheme</key>
+		<key>Pods-Contacts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

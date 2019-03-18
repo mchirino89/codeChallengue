@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import AlamofireImage
 
 enum ResourceType: String {
     case json
@@ -22,6 +23,12 @@ class NetworkLayer {
         Alamofire.request(originURL).validate().responseData { response in
             print(response.result.description)
             completion(response.result)
+        }
+    }
+
+    func getImage(from originURL: String, using completion: @escaping (Result<Image>) -> ()) {
+        Alamofire.request(originURL).responseImage { retrievedImage in
+            completion(retrievedImage.result)
         }
     }
 
