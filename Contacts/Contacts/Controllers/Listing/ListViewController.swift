@@ -23,8 +23,11 @@ class ListViewController: UIViewController {
         didSet {
             contactsTableView.delegate = self
             contactsTableView.dataSource = dataSource
+            contactsTableView.rowHeight = 120
         }
     }
+
+    @IBOutlet weak var loadingActivitiyIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +40,12 @@ extension ListViewController: ResponseHandable {
     func responseOutput(result: DataState) {
         switch result {
         case .loaded(let received):
-            dataSource.update(users: received)
+            dataSource.update(with: received)
         case .failure(_):
+            contactsTableView.isHidden = true
             dataSource.update()
         }
+        loadingActivitiyIndicator.stopAnimating()
         contactsTableView.reloadData()
     }
 }
@@ -49,9 +54,5 @@ extension ListViewController: UITableViewDelegate {
     /// Notifies which cell was selected to coordinate transition
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
     }
 }

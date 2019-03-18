@@ -61,7 +61,7 @@ extension User: Decodable {
         let container = try decoder.container(keyedBy: UserCodingKey.self)
         let decodedName = try container.decode(String.self, forKey: .name)
         let decodedId = try container.decode(String.self, forKey: .id)
-        let decodedCompanyName = try container.decodeIfPresent(String.self, forKey: .companyName) ?? ""
+        let decodedCompanyName = try container.decodeIfPresent(String.self, forKey: .companyName) ?? " "
         let decodedFavorite = try container.decode(Bool.self, forKey: .isFavorite)
         let decodedSmallImage = try container.decode(String.self, forKey: .smallImageURL)
         let parseSmallImageURL = URL(string: decodedSmallImage)
