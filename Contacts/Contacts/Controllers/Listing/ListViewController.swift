@@ -8,11 +8,6 @@
 
 import Alamofire
 
-enum DataState {
-    case loaded([User])
-    case failure(Error)
-}
-
 class ListViewController: UIViewController {
 
     private let cellId = "userCell"

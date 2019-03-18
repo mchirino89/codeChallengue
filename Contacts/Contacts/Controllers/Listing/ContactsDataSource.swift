@@ -33,6 +33,7 @@ extension ContactsDataSource: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? UserViewModel else {
             return UITableViewCell()
         }
+        cell.configureCell(with: users[indexPath.row])
         return cell
     }
 }

@@ -8,6 +8,11 @@
 
 import Alamofire
 
+enum DataState {
+    case loaded([User])
+    case failure(Error)
+}
+
 protocol ResponseHandable: class {
     func responseOutput(result: DataState)
 }
