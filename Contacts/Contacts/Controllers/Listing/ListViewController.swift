@@ -31,6 +31,7 @@ class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Contacts"
         apiCall.fetchUsers()
     }
 
@@ -53,6 +54,9 @@ extension ListViewController: ResponseHandable {
 extension ListViewController: UITableViewDelegate {
     /// Notifies which cell was selected to coordinate transition
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        // FIX: This should be done using coordinators definitively
+        let selectedUser = dataSource.getUser(at: indexPath)
+        let detailedView = DetailsViewController(currentUser: selectedUser)
+        navigationController?.pushViewController(detailedView, animated: true)
     }
 }

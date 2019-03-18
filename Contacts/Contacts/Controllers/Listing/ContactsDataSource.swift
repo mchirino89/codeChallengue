@@ -8,11 +8,6 @@
 
 import UIKit
 
-enum Grouped: Int {
-    case favorite
-    case noneFavorite
-}
-
 enum Headers: String, CaseIterable {
     case favorite = "FAVORITE CONTACTS"
     case others = "OTHER CONTACTS"
@@ -35,8 +30,8 @@ class ContactsDataSource: NSObject {
         sortGrouped()
     }
 
-    func getUser(at index: Int, in section: Grouped) -> User {
-        return groupedUsers[section.rawValue][index]
+    func getUser(at index: IndexPath) -> User {
+        return groupedUsers[index.section][index.row]
     }
 
     private func sortGrouped() {

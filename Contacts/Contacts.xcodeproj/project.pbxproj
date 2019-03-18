@@ -15,6 +15,8 @@
 		E13E8D43223E9C5A0021CD55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E13E8D42223E9C5A0021CD55 /* Assets.xcassets */; };
 		E13E8D46223E9C5A0021CD55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13E8D44223E9C5A0021CD55 /* LaunchScreen.storyboard */; };
 		E13E8D51223E9C5A0021CD55 /* contactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13E8D50223E9C5A0021CD55 /* contactsTests.swift */; };
+		E16DDA86223FEB56005461F0 /* PhoneViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DDA85223FEB56005461F0 /* PhoneViewModelCell.swift */; };
+		E16DDA88223FEB79005461F0 /* InfoViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DDA87223FEB79005461F0 /* InfoViewModelCell.swift */; };
 		E1FBB6F4223EB19E0001E273 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB6F3223EB19E0001E273 /* NetworkLayer.swift */; };
 		E1FBB6F6223EB1D40001E273 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB6F5223EB1D40001E273 /* Constants.swift */; };
 		E1FBB6FD223EBEF90001E273 /* ContactsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBB6FC223EBEF90001E273 /* ContactsDataSource.swift */; };
@@ -54,6 +56,8 @@
 		E13E8D4C223E9C5A0021CD55 /* ContactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13E8D50223E9C5A0021CD55 /* contactsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contactsTests.swift; sourceTree = "<group>"; };
 		E13E8D52223E9C5A0021CD55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E16DDA85223FEB56005461F0 /* PhoneViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModelCell.swift; sourceTree = "<group>"; };
+		E16DDA87223FEB79005461F0 /* InfoViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModelCell.swift; sourceTree = "<group>"; };
 		E1FBB6F3223EB19E0001E273 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		E1FBB6F5223EB1D40001E273 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E1FBB6FC223EBEF90001E273 /* ContactsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsDataSource.swift; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				E1FBB706223F208E0001E273 /* DetailsViewController.swift */,
+				E16DDA85223FEB56005461F0 /* PhoneViewModelCell.swift */,
+				E16DDA87223FEB79005461F0 /* InfoViewModelCell.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -378,9 +384,11 @@
 			files = (
 				E1FBB6FF223EE2710001E273 /* Phone.swift in Sources */,
 				E1FBB6F4223EB19E0001E273 /* NetworkLayer.swift in Sources */,
+				E16DDA88223FEB79005461F0 /* InfoViewModelCell.swift in Sources */,
 				E1FBB707223F208E0001E273 /* DetailsViewController.swift in Sources */,
 				E13E8D3E223E9C580021CD55 /* ListViewController.swift in Sources */,
 				E13E8D3C223E9C580021CD55 /* AppDelegate.swift in Sources */,
+				E16DDA86223FEB56005461F0 /* PhoneViewModelCell.swift in Sources */,
 				E1FBB70B223F38EF0001E273 /* APIResponse.swift in Sources */,
 				E1FBB703223EE34C0001E273 /* User.swift in Sources */,
 				E1FBB6F6223EB1D40001E273 /* Constants.swift in Sources */,
